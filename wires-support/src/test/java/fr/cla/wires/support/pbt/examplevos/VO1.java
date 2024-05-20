@@ -28,7 +28,7 @@ public class VO1 extends AbstractValueObject<VO1> {
 
     @Override
     protected boolean canEqual(AbstractValueObject<?> that) {
-        return that instanceof VO1;
+        return super.canEqual(that) && that instanceof VO1;
     }
 
 }
