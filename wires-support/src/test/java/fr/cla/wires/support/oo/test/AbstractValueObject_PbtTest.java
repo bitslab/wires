@@ -3,7 +3,9 @@ package fr.cla.wires.support.oo.test;
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
+import fr.cla.wires.support.oo.AbstractValueObject;
 import fr.cla.wires.support.pbt.*;
+import org.junit.Assume;
 import org.junit.runner.RunWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -98,6 +100,8 @@ public class AbstractValueObject_PbtTest {
     public void equals_should_be_false_for_different_types(
         @RandomVoPair VoPair p
     ) {
+        Assume.assumeFalse(VoPairGenerator.current == AbstractValueObject.Equatability.IS_INSTANCE);
+
         if(!p.x.equals(p.y)) return;
 
         assertThat(

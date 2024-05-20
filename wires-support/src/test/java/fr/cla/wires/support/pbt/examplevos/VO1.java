@@ -12,13 +12,13 @@ public class VO1 extends AbstractValueObject<VO1> {
 
     protected final Value x;
 
-    public VO1(Value x) {
-        super(VO1.class);
+    public VO1(Value x, Equatability e) {
+        super(VO1.class, e);
         this.x = x;
     }
 
-    public static VO1 random(SourceOfRandomness rand) {
-        return new VO1(Value.random(rand));
+    public static VO1 random(SourceOfRandomness rand, Equatability e) {
+        return new VO1(Value.random(rand), e);
     }
 
     @Override

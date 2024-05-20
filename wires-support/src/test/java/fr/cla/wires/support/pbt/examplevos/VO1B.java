@@ -11,15 +11,16 @@ public class VO1B extends VO1 {
 
     private final Value y;
 
-    public VO1B(Value y, Value x) {
-        super(x);
+    public VO1B(Value y, Value x, Equatability e) {
+        super(x, e);
         this.y = y;
     }
 
-    public static VO1B random(SourceOfRandomness rand) {
+    public static VO1B random(SourceOfRandomness rand, Equatability e) {
         return new VO1B(
             Value.random(rand),
-            Value.random(rand)
+            Value.random(rand),
+            e
         );
     }
 
