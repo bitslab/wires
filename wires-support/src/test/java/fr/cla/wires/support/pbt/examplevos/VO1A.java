@@ -11,15 +11,16 @@ public class VO1A extends VO1 {
 
     private final Value y;
 
-    public VO1A(Value y, Value x) {
-        super(x);
+    public VO1A(Value y, Value x, Equatability e) {
+        super(x, e);
         this.y = y;
     }
 
-    public static VO1A random(SourceOfRandomness rand) {
+    public static VO1A random(SourceOfRandomness rand, Equatability e) {
         return new VO1A(
             Value.random(rand),
-            Value.random(rand)
+            Value.random(rand),
+            e
         );
     }
 

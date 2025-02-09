@@ -12,13 +12,13 @@ public class VO2 extends AbstractValueObject<VO2> {
 
     protected final Value x;
 
-    public VO2(Value x) {
-        super(VO2.class);
+    public VO2(Value x, Equatability e) {
+        super(VO2.class, e);
         this.x = x;
     }
 
-    public static VO2 random(SourceOfRandomness rand) {
-        return new VO2(Value.random(rand));
+    public static VO2 random(SourceOfRandomness rand, Equatability e) {
+        return new VO2(Value.random(rand), e);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class VO2 extends AbstractValueObject<VO2> {
 
     @Override
     protected boolean canEqual(AbstractValueObject<?> that) {
-        return that instanceof VO2;
+        return super.canEqual(that) && that instanceof VO2;
     }
 
 }
